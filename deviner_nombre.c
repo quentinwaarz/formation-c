@@ -2,6 +2,17 @@
 #include <stdlib.h>
 #include <time.h>
 
+int lire_entier(void) {
+    int n;
+    while (scanf("%d", &n) != 1) {
+        printf("Ce n'est pas un nombre. Recommence : ");
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF) {
+        }
+    }
+    return n;
+}
+
 int main(void)
 {
     srand(time(NULL));
@@ -11,11 +22,7 @@ int main(void)
     while (guess != secret)
     {
         printf("Quel est le nombre ? ");
-        if (scanf("%d", &guess) != 1)
-        {
-            printf("Ce n'est pas un nombre.\n");
-            return 1;
-        }
+        guess = lire_entier();
         essais = essais + 1;
         if (guess < secret)
         {
